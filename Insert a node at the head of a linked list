@@ -1,0 +1,28 @@
+// Complete the insertNodeAtHead function below.
+
+    /*
+     * For your reference:
+     *
+     * SinglyLinkedListNode {
+     *     int data;
+     *     SinglyLinkedListNode next;
+     * }
+     *
+     */
+    static SinglyLinkedListNode insertNodeAtHead(SinglyLinkedListNode llist, int data) {
+      
+        SinglyLinkedListNode nuevo_nodo = new SinglyLinkedListNode(data);
+        nuevo_nodo.next = null;
+        if(llist == null){
+            llist = nuevo_nodo;
+        }
+        else{
+            nuevo_nodo.next = llist;
+            llist = nuevo_nodo;
+        }
+        return llist;
+    
+    }
+
+
+    private static final Scanner scanner = new Scanner(System.in);
