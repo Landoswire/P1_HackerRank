@@ -1,0 +1,29 @@
+  // Complete the insertNodeAtTail function below.
+
+    /*
+     * For your reference:
+     *
+     * SinglyLinkedListNode {
+     *     int data;
+     *     SinglyLinkedListNode next;
+     * }
+     *
+     */
+    static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data) {
+       
+        SinglyLinkedListNode nuevo_nodo = new SinglyLinkedListNode(data);
+        SinglyLinkedListNode auxiliar = head;
+        nuevo_nodo.next = null;
+        if(head == null){
+            head = nuevo_nodo;
+            return head;
+        }
+        while(auxiliar.next != null){
+            auxiliar = auxiliar.next;
+        }
+        auxiliar.next = nuevo_nodo;
+        return head;
+    
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
