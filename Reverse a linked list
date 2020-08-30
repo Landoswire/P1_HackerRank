@@ -1,0 +1,32 @@
+
+    // Complete the reverse function below.
+
+    /*
+     * For your reference:
+     *
+     * SinglyLinkedListNode {
+     *     int data;
+     *     SinglyLinkedListNode next;
+     * }
+     *
+     */
+    static SinglyLinkedListNode reverse(SinglyLinkedListNode head) {
+        SinglyLinkedListNode auxiliar = head;
+        SinglyLinkedListNode anterior = null;
+        SinglyLinkedListNode previo = null;
+        if(head == null){
+            return head;
+        }
+        while(auxiliar != null){
+
+            auxiliar = auxiliar.next;
+            head.next = anterior;
+            anterior = head;
+            head = auxiliar;
+        }
+        head = anterior;
+        return head;
+
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
