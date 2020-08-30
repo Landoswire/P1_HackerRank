@@ -1,0 +1,36 @@
+
+    // Complete the reversePrint function below.
+
+    /*
+     * For your reference:
+     *
+     * SinglyLinkedListNode {
+     *     int data;
+     *     SinglyLinkedListNode next;
+     * }
+     *
+     */
+    static void reversePrint(SinglyLinkedListNode head) {
+        SinglyLinkedListNode auxiliar = head;
+        SinglyLinkedListNode anterior = null;
+        SinglyLinkedListNode previo = null;
+        if(head == null){
+            return;
+        }
+        while(auxiliar != null){
+
+            anterior = auxiliar;
+            auxiliar = auxiliar.next;
+            anterior.next = previo;
+            previo = anterior;
+            head = anterior;
+        }
+        auxiliar = head;
+        while(auxiliar != null){
+            System.out.println(auxiliar.data);
+            auxiliar = auxiliar.next;
+        }
+
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
