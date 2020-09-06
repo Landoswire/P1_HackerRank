@@ -1,0 +1,57 @@
+ // Complete the sortedInsert function below.
+
+    /*
+     * For your reference:
+     *
+     * DoublyLinkedListNode {
+     *     int data;
+     *     DoublyLinkedListNode next;
+     *     DoublyLinkedListNode prev;
+     * }
+     *
+     */
+   static DoublyLinkedListNode sortedInsert(DoublyLinkedListNode head, int data) 
+    {
+        DoublyLinkedListNode nuevo = new DoublyLinkedListNode(data);
+        nuevo.next = null;
+        nuevo.prev = null;
+        DoublyLinkedListNode aux = head;
+        DoublyLinkedListNode ant = null;
+        
+        while(aux.next != null)
+        {
+            if(head == null)
+            {
+                return head;
+            }
+            else if(data < head.data)
+            {
+                head.prev = nuevo;
+                nuevo.next = head;
+                return nuevo;
+            }
+            DoublyLinkedListNode n1 = null;
+            DoublyLinkedListNode n2 = head;
+            while (n2 != null && n2.data < data) 
+            {
+                n1 = n2;
+                n2 = n2.next;
+            }
+            if (n2 == null) 
+            {
+                n1.next = nuevo;
+                nuevo.prev = n1;
+            } 
+            else 
+            {
+                n1.next = nuevo;
+                n2.prev = nuevo;
+                nuevo.prev = n1;
+                nuevo.next = n2;
+            }
+                return head;
+        }
+        return head;
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
